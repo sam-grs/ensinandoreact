@@ -1,0 +1,6 @@
+* {
+  font-family: Gotham HTF Medium, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; /* Para garantir que o padding e a borda não aumentem o tamanho total do elemento */
+}

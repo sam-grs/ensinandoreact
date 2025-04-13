@@ -1,0 +1,484 @@
+:root {
+  /* variaveis de cor, pode chamar em qualquer lugar deste css */
+  --rosa: #ed145b;
+  --preto-claro: #101010;
+  --preto-escuro: #000000;
+  --azul-claro: #acc1cc;
+  --azul-escuro: #006bb7;
+  --cinza-claro: #afafaf;
+  --cinza-escuro: #555555;
+  --branco: #f5f5f5;
+}
+
+/* seletor */
+header {
+  display: flex;
+  /* centraliza na horizontal */
+  justify-content: center;
+  /* centraliza na vertical */
+  align-items: center;
+  height: 80px;
+  background-color: var(--preto-claro);
+  color: var(--rosa);
+}
+
+/* Sessão inicial */
+
+/* mobile first */
+/* media - dispositivo a partir 0px, 600px e 1200px */
+/* Perceba que, os atributos dentro do media vão continuar na classe não serão sobre escritos quando os dispositivos forem maiores */
+/* Apenas chamamos os atributos que precisamos modificar nos dispositivos maiores, evitando chamar atributo repetido com o mesmo valor */
+@media (min-width: 0px) {
+  .sessao-inicial {
+    min-height: 70vh;
+    /* é usado para criar um fundo de imagem */
+    /* foi criado uma sombra a partir da esquerda da imagem */
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 25%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.5) 60%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url("/assets/fundo-tela-inicial.jpg");
+
+    /* quando é display column o justify-content alinha na vertical 
+    e o align-content na horizontal ao contrário do padrão */
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    justify-content: flex-end;
+
+    padding: 3rem;
+    background-size: cover; /* Faz com que a imagem cubra toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+  }
+
+  .titulo {
+    color: transparent;
+    /* borda do titulo */
+    -webkit-text-stroke: 1px var(--rosa);
+    /* grossura do titulo */
+    font-weight: 800;
+    font-size: 30px;
+    /* animação do título */
+    opacity: 0;
+    animation: aparecer 1.5s ease-in forwards;
+  }
+
+  .sub-titulo {
+    color: var(--azul-claro);
+    font-size: 25px;
+    font-weight: 600;
+    opacity: 0;
+    /* animação do subtítulo */
+    animation: aparecer 1.5s ease-in forwards;
+    animation-delay: 1s; /* atraso de 1 segundo */
+  }
+
+  /* função que faz aparecer o título e subtítulo depois da animação */
+  @keyframes aparecer {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* dentro da sessao-inicial o sub-titulo e paragrafo vao ter um css específico */
+  /* seletor */
+  .sessao-inicial .sub-titulo,
+  .paragrafo {
+    margin-top: 15px;
+  }
+
+  .sessao-inicial .paragrafo {
+    font-size: 15px;
+    /* define a largura máxima */
+    max-width: 500px;
+    color: var(--azul-claro);
+    /* deixa o texto alinhado */
+    text-align: justify;
+  }
+
+  .scroll-down p {
+    color: var(--azul-claro);
+    font-size: 14px;
+  }
+
+  img {
+    cursor: pointer;
+  }
+
+  .scroll-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margem entre os elementos (só funciona display flex ou grid) */
+    gap: 10px;
+  }
+}
+
+@media (min-width: 600px) {
+  .titulo {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  .sub-titulo {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  .sessao-inicial .paragrafo {
+    font-size: 18px;
+    max-width: 650px;
+  }
+
+  .scroll-down p {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .sessao-inicial {
+    height: 90vh;
+    padding: 5rem;
+  }
+
+  .titulo {
+    font-size: 4rem;
+  }
+
+  .sub-titulo {
+    font-size: 4rem;
+  }
+}
+
+/* Fim sessão inicial */
+
+/* Sessão 2 */
+@media (min-width: 0px) {
+  .educacao-tech {
+    padding: 3rem;
+    background-color: var(--branco);
+  }
+
+  .educacao-tech h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .educacao-tech .imagem-fiap {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .educacao-tech h5 {
+    color: rgb(61, 61, 61);
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+  .educacao-tech h6 {
+    color: var(--rosa);
+    font-size: 18px;
+    font-weight: 200;
+  }
+
+  .educacao-tech p {
+    color: var(--cinza-escuro);
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .conteudo-fiap p {
+    margin: 1rem 0;
+  }
+
+  .conteudo-fiap h5 {
+    margin: 3rem 0;
+    color: var(--cinza-escuro);
+    font-size: 20px;
+    font-weight: 200;
+    margin: 1.2rem 0px;
+  }
+
+  .conteudo-fiap h6 {
+    color: var(--rosa);
+    font-size: 18px;
+    font-weight: 200;
+    margin: 15px 0px 15px 20px;
+  }
+
+  i {
+    color: var(--rosa);
+    margin-right: 5px;
+    font-weight: 800;
+  }
+
+  /* código do modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .icone-fechar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .educacao-tech .imagem-modal {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .seta-de-baixo {
+    display: flex;
+    justify-self: flex-end;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 600px) {
+  .educacao-tech h1 {
+    text-align: start;
+    font-size: 40px;
+  }
+
+  .educacao-tech .imagem-modal {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .educacao-tech {
+    padding: 5rem;
+  }
+
+  .educacao-tech h1 {
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
+  .educacao-tech .container {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    justify-content: space-around;
+    gap: 30px;
+  }
+
+  .educacao-tech .content {
+    max-width: 100%;
+  }
+
+  .educacao-tech .container > div {
+    width: 90%;
+    justify-self: end;
+  }
+
+  .conteudo-fiap h5 {
+    margin: 1.6rem 0;
+  }
+
+  .conteudo-fiap p {
+    margin: 0;
+  }
+
+  .educacao-tech .imagem-modal {
+    width: 100%;
+    max-width: 900px;
+  }
+}
+
+/* Fim sessão 2 */
+
+/* Sessão paralax  */
+
+.paralax {
+  width: 100%;
+  /* Apenas 300px visíveis e o resto mostra com o scroll */
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/assets/imagem-paralax.jpg");
+  background-attachment: fixed;
+}
+
+/* Fim sessão paralax  */
+
+/* Sessao 3 */
+
+@media (min-width: 0px) {
+  .nossa-estrutura {
+    background-color: var(--preto-claro);
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .nossa-estrutura .container {
+    width: 100%;
+  }
+
+  hr {
+    border: 1px solid var(--cinza-escuro);
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .accordion-open {
+    cursor: pointer;
+  }
+
+  .accordion-conteudo {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.1s ease;
+    padding: 0 1rem;
+  }
+
+  .accordion-item.active .accordion-conteudo {
+    max-height: 300px; /* ajustável conforme conteúdo */
+  }
+
+  .nossa-estrutura h1 {
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .nossa-estrutura h3 {
+    margin: 40px 0px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+  }
+
+  .nossa-estrutura p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: var(--branco);
+    text-align: justify;
+  }
+}
+
+@media (min-width: 600px) {
+  .nossa-estrutura h1 {
+    font-size: 40px;
+    text-align: start;
+  }
+
+  .nossa-estrutura .container {
+    padding-left: 70px;
+  }
+
+  .nossa-estrutura h3 {
+    font-size: 20px;
+  }
+
+  .nossa-estrutura p {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .nossa-estrutura {
+    padding: 5rem;
+  }
+
+  .nossa-estrutura h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 70px;
+  }
+
+  .nossa-estrutura h3 {
+    font-size: 25;
+  }
+
+  .nossa-estrutura p {
+    font-size: 18px;
+  }
+}
+
+/* Fim sessao 3 */
+
+/* Sessao 4 */
+@media (min-width: 0px) {
+  .saiba-mais {
+    height: 30vh;
+    background-color: var(--preto-escuro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .saiba-mais h1 {
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-size: 30px;
+  }
+
+  button {
+    text-transform: uppercase;
+    background-color: var(--preto-escuro);
+    border: 1px solid var(--rosa);
+    color: var(--rosa);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: var(--rosa);
+    color: var(--preto-escuro);
+  }
+}
+
+@media (min-width: 1200px) {
+  .saiba-mais {
+    height: 50vh;
+    justify-content: end;
+    padding-bottom: 80px;
+    gap: 30px;
+  }
+
+  .saiba-mais h1 {
+    font-size: 3rem;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+/* Fim sessao 4 */
